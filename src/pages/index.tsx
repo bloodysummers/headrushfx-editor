@@ -1,18 +1,23 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
-import { WebUSB } from 'usb';
+import { useSetRecoilState } from 'recoil'
+import { editorState } from './state/editor'
 
 export default function Home() {
   const router = useRouter()
-  const [file, setFile] = useState<string>()
+  const setEditor = useSetRecoilState(editorState);
+
+  const [path, setPath] = useState<string>()
+
   const onChange = (e: FormEvent<HTMLInputElement>) => {
-    setFile(e.currentTarget.value)
+    setPath(e.currentTarget.value)
   }
-  const onSubmit = () => {
-    console.log(file)
-    debugger
-    router.push(`/rig/editor/?file=${file}`)
+
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    setEditor({ path: path || '' })
+    router.push('/assets')
   }
 
   return (
@@ -33,23 +38,3 @@ export default function Home() {
     </>
   )
 }
-
-// export async function getServerSideProps() {
-//   const customWebUSB = new WebUSB({
-//     // Bypass cheking for authorised devices
-//     allowAllDevices: true
-//   });
-
-//   // Uses blocking calls, so is async
-//   const devices = await customWebUSB.getDevices();
-
-//   for (const device of devices) {
-//       console.log(device.manufacturerName); // WebUSB device
-//   }
-
-//   return {
-//     props: {
-
-//     }
-//   }
-// }

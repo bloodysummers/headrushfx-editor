@@ -10,13 +10,8 @@ import { RigWithContent } from "@/types/rig";
 export default function RigEditor({ rig }: { rig: RigWithContent }) {
   const router = useRouter()
 
-  console.log({ rig })
-
   const rigPatch = rig.content.data.Patch
   const rigChain = rigPatch.children.Chain
-
-  console.log({ patch: rigPatch })
-  console.log({ chain: rigChain })
 
   return (
     <>

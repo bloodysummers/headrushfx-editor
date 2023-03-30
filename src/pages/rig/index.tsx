@@ -9,6 +9,7 @@ interface RigProps {
 
 export default function Rig({ rigs = [] }: RigProps) {
   const router = useRouter()
+
   const editRig = (rig: string) => {
     router.push(`/rig/editor/${rig}`)
   }
