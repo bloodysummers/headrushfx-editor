@@ -1,4 +1,5 @@
-import Head from "next/head";
+import Head from 'next/head'
+import { useQuery } from 'react-query'
 
 export default function Setlists() {
   return (
@@ -11,7 +12,6 @@ export default function Setlists() {
       </Head>
       <main>
         <h1>Setlists</h1>
-        
       </main>
     </>
   )

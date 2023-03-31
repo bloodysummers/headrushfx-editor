@@ -2,11 +2,11 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { editorState } from './state/editor'
+import { editorState } from '../state/editor'
 
 export default function Home() {
   const router = useRouter()
-  const setEditor = useSetRecoilState(editorState);
+  const setEditor = useSetRecoilState(editorState)
 
   const [path, setPath] = useState<string>()
 

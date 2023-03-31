@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRecoilValue } from 'recoil'
-import { editorState } from '../state/editor'
+import { editorState } from '../../state/editor'
 
 export default function AssetsPage() {
   const editor = useRecoilValue(editorState)
@@ -18,12 +18,15 @@ export default function AssetsPage() {
         <h1>Sections</h1>
         <ul>
           <li>
-            <h3><Link href="/assets/setlist">Setlists</Link></h3>
-            <h3><Link href="/assets/rig">Rigs</Link></h3>
+            <h3>
+              <Link href="/assets/setlist">Setlists</Link>
+            </h3>
+            <h3>
+              <Link href="/assets/rig">Rigs</Link>
+            </h3>
           </li>
         </ul>
       </main>
     </>
   )
 }
-

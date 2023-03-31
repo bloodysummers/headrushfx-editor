@@ -6,11 +6,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
     res.status(405).end(`Method ${req.method} Not Allowed`)
   }
-  const setlistsPath = req.query.path as string
-  if (!setlistsPath) {
+  const rigsPath = req.query.path as string
+  if (!rigsPath) {
     res.status(400).end('Missing path')
     return
   }
-  const setlistsFiles = fs.readdirSync(path.resolve(setlistsPath, './Setlists'))
-  res.status(200).json(setlistsFiles)
+  const rigsFiles = fs.readdirSync(path.resolve(rigsPath, './Rigs'))
+  res.status(200).json(rigsFiles)
 }
